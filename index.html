@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mijn Huis</title>
+<style>
+body{
+ margin:0;
+ background:#07111f;
+ color:white;
+ font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+ padding:20px;
+}
+h1{font-size:32px}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+ gap:15px;
+}
+.card{
+ background:#122136;
+ border:1px solid #29415f;
+ border-radius:20px;
+ padding:20px;
+}
+.icon{font-size:35px}
+.value{font-size:30px;font-weight:bold;margin:12px 0}
+button{
+ background:#2f83ff;
+ color:white;
+ border:0;
+ border-radius:12px;
+ padding:12px 18px;
+ font-size:16px;
+ margin:4px;
+}
+.off{background:#303f52}
+.green{color:#28d27c}
+</style>
+</head>
 
+<body>
+
+<h1>🏠 Mijn Huis</h1>
+<p>Alles op één scherm</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">💡</div>
+<h2>Philips Hue</h2>
+<p class="green">● Beschikbaar</p>
+<button onclick="lamp('Woonkamer')">Woonkamer</button>
+<button class="off" onclick="lamp('Keuken')">Keuken</button>
+<button class="off" onclick="lamp('Buiten')">Buiten</button>
+</div>
+
+<div class="card">
+<div class="icon">🚗</div>
+<h2>Easee One</h2>
+<div class="value">3,6 kW</div>
+<p>Laden</p>
+<button onclick="bericht('Laden gestart')">▶ Start</button>
+<button class="off" onclick="bericht('Laden gestopt')">⏸ Stop</button>
+</div>
+
+<div class="card">
+<div class="icon">📷</div>
+<h2>Eufy camera's</h2>
+<p class="green">● 4 online</p>
+<button onclick="bericht('Camera’s openen')">Camera's bekijken</button>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h2>Smappee</h2>
+<div class="value">1,4 kW</div>
+<p>Huidig verbruik</p>
+</div>
+
+<div class="card">
+<div class="icon">☀️</div>
+<h2>Huawei zonnepanelen</h2>
+<div class="value">4,2 kW</div>
+<p>Actuele productie</p>
+</div>
+
+<div class="card">
+<div class="icon">🌡️</div>
+<h2>Verwarming</h2>
+<div class="value" id="temp">22°C</div>
+<button onclick="temperatuur(-1)">−</button>
+<button onclick="temperatuur(1)">+</button>
+</div>
+
+<div class="card">
+<div class="icon">💧</div>
+<h2>Regenwater</h2>
+<div class="value">72%</div>
+<p>Tankniveau</p>
+</div>
+
+<div class="card">
+<div class="icon">🔋</div>
+<h2>Batterij</h2>
+<div class="value">68%</div>
+<p>6,1 kWh</p>
+</div>
+
+</div>
+
+<script>
+function bericht(tekst){
+ alert(tekst);
+}
+
+function lamp(naam){
+ alert(naam + " geselecteerd");
+}
+
+let temp=22;
+
+function temperatuur(a){
+ temp=temp+a;
+ document.getElementById("temp").innerText=temp+"°C";
+}
+</script>
+
+</body>
+</html>
