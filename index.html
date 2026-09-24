@@ -4,128 +4,245 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mijn Huis</title>
+
 <style>
+*{box-sizing:border-box}
+
 body{
- margin:0;
- background:#07111f;
- color:white;
- font-family:-apple-system,BlinkMacSystemFont,sans-serif;
- padding:20px;
+  margin:0;
+  background:#07111f;
+  color:white;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  padding:20px;
 }
-h1{font-size:32px}
+
+h1{
+  font-size:36px;
+  margin:0 0 5px;
+}
+
+.subtitle{
+  color:#9ca9b8;
+  font-size:18px;
+  margin-bottom:25px;
+}
+
 .grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
- gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
 }
+
 .card{
- background:#122136;
- border:1px solid #29415f;
- border-radius:20px;
- padding:20px;
+  background:#122136;
+  border:1px solid #29415f;
+  border-radius:22px;
+  padding:22px;
+  min-height:190px;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
-.icon{font-size:35px}
-.value{font-size:30px;font-weight:bold;margin:12px 0}
+
+.icon{
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+h2{
+  margin:0 0 12px;
+  font-size:23px;
+}
+
+.status{
+  color:#36df8a;
+  font-size:17px;
+  margin-bottom:12px;
+}
+
+.value{
+  font-size:32px;
+  font-weight:700;
+  margin:10px 0;
+}
+
+.small{
+  color:#9ca9b8;
+  font-size:15px;
+}
+
 button{
- background:#2f83ff;
- color:white;
- border:0;
- border-radius:12px;
- padding:12px 18px;
- font-size:16px;
- margin:4px;
+  width:100%;
+  border:0;
+  border-radius:15px;
+  padding:14px;
+  margin-top:14px;
+  font-size:17px;
+  font-weight:600;
+  background:#287cff;
+  color:white;
 }
-.off{background:#303f52}
-.green{color:#28d27c}
+
+.off{
+  background:#25364d;
+}
+
+.alloff{
+  margin-top:20px;
+  background:#c9364b;
+  font-size:20px;
+  padding:18px;
+}
+
+.section{
+  margin-top:30px;
+  font-size:25px;
+  font-weight:700;
+}
+
+.energy{
+  background:#0e1b2d;
+  border-radius:22px;
+  padding:22px;
+  margin-top:15px;
+  border:1px solid #29415f;
+}
+
+.energyrow{
+  display:flex;
+  justify-content:space-between;
+  padding:13px 0;
+  border-bottom:1px solid #263950;
+  font-size:17px;
+}
+
+.energyrow:last-child{
+  border-bottom:0;
+}
+
+.green{
+  color:#36df8a;
+}
+
+.yellow{
+  color:#ffd45a;
+}
+
+.blue{
+  color:#55a8ff;
+}
 </style>
 </head>
 
 <body>
 
 <h1>🏠 Mijn Huis</h1>
-<p>Alles op één scherm</p>
+<div class="subtitle">Alles op één scherm</div>
 
 <div class="grid">
 
-<div class="card">
-<div class="icon">💡</div>
-<h2>Philips Hue</h2>
-<p class="green">● Beschikbaar</p>
-<button onclick="lamp('Woonkamer')">Woonkamer</button>
-<button class="off" onclick="lamp('Keuken')">Keuken</button>
-<button class="off" onclick="lamp('Buiten')">Buiten</button>
+  <div class="card">
+    <div class="icon">💡</div>
+    <h2>Philips Hue</h2>
+    <div class="status">● Beschikbaar</div>
+    <div class="small">Verlichting</div>
+    <button onclick="alert('Hue wordt binnenkort gekoppeld')">
+      Woonkamer
+    </button>
+  </div>
+
+  <div class="card">
+    <div class="icon">🚗</div>
+    <h2>Easee One</h2>
+    <div class="value">3,6 kW</div>
+    <div class="status">Laden</div>
+    <div class="small">Elektrische wagen</div>
+    <button class="off" onclick="alert('Laadpaal wordt binnenkort gekoppeld')">
+      Laden beheren
+    </button>
+  </div>
+
+  <div class="card">
+    <div class="icon">📷</div>
+    <h2>Eufy camera's</h2>
+    <div class="status">● 4 online</div>
+    <div class="small">Beveiliging</div>
+    <button onclick="alert('Camera's worden binnenkort gekoppeld')">
+      Camera's bekijken
+    </button>
+  </div>
+
+  <div class="card">
+    <div class="icon">☀️</div>
+    <h2>Zonnepanelen</h2>
+    <div class="value">4,2 kW</div>
+    <div class="status">● Productie</div>
+    <div class="small">Huawei omvormer</div>
+  </div>
+
+  <div class="card">
+    <div class="icon">🔋</div>
+    <h2>Batterij</h2>
+    <div class="value">68%</div>
+    <div class="status">● Beschikbaar</div>
+    <div class="small">Thuisbatterij</div>
+  </div>
+
+  <div class="card">
+    <div class="icon">🏠</div>
+    <h2>Huisverbruik</h2>
+    <div class="value">1,4 kW</div>
+    <div class="small">Actueel verbruik</div>
+  </div>
+
+  <div class="card">
+    <div class="icon">💧</div>
+    <h2>Regenwater</h2>
+    <div class="value">72%</div>
+    <div class="small">Voorraad regenwater</div>
+  </div>
+
+  <div class="card">
+    <div class="icon">🌡️</div>
+    <h2>Temperatuur</h2>
+    <div class="value">22°C</div>
+    <div class="small">Woonkamer</div>
+  </div>
+
 </div>
 
-<div class="card">
-<div class="icon">🚗</div>
-<h2>Easee One</h2>
-<div class="value">3,6 kW</div>
-<p>Laden</p>
-<button onclick="bericht('Laden gestart')">▶ Start</button>
-<button class="off" onclick="bericht('Laden gestopt')">⏸ Stop</button>
-</div>
+<div class="section">⚡ Energie</div>
 
-<div class="card">
-<div class="icon">📷</div>
-<h2>Eufy camera's</h2>
-<p class="green">● 4 online</p>
-<button onclick="bericht('Camera’s openen')">Camera's bekijken</button>
-</div>
+<div class="energy">
 
-<div class="card">
-<div class="icon">⚡</div>
-<h2>Smappee</h2>
-<div class="value">1,4 kW</div>
-<p>Huidig verbruik</p>
-</div>
+  <div class="energyrow">
+    <span>☀️ Zonnepanelen</span>
+    <strong class="green">+4,2 kW</strong>
+  </div>
 
-<div class="card">
-<div class="icon">☀️</div>
-<h2>Huawei zonnepanelen</h2>
-<div class="value">4,2 kW</div>
-<p>Actuele productie</p>
-</div>
+  <div class="energyrow">
+    <span>🏠 Huis</span>
+    <strong>−1,4 kW</strong>
+  </div>
 
-<div class="card">
-<div class="icon">🌡️</div>
-<h2>Verwarming</h2>
-<div class="value" id="temp">22°C</div>
-<button onclick="temperatuur(-1)">−</button>
-<button onclick="temperatuur(1)">+</button>
-</div>
+  <div class="energyrow">
+    <span>🔋 Batterij</span>
+    <strong class="yellow">+1,2 kW</strong>
+  </div>
 
-<div class="card">
-<div class="icon">💧</div>
-<h2>Regenwater</h2>
-<div class="value">72%</div>
-<p>Tankniveau</p>
-</div>
+  <div class="energyrow">
+    <span>🚗 Auto</span>
+    <strong class="blue">−3,6 kW</strong>
+  </div>
 
-<div class="card">
-<div class="icon">🔋</div>
-<h2>Batterij</h2>
-<div class="value">68%</div>
-<p>6,1 kWh</p>
-</div>
+  <div class="energyrow">
+    <span>⚡ Net</span>
+    <strong class="green">0,0 kW</strong>
+  </div>
 
 </div>
 
-<script>
-function bericht(tekst){
- alert(tekst);
-}
-
-function lamp(naam){
- alert(naam + " geselecteerd");
-}
-
-let temp=22;
-
-function temperatuur(a){
- temp=temp+a;
- document.getElementById("temp").innerText=temp+"°C";
-}
-</script>
+<button class="alloff" onclick="alert('Alles uit wordt gekoppeld aan je apparaten')">
+  ⏻ ALLES UIT
+</button>
 
 </body>
 </html>
